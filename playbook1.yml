@@ -4,7 +4,7 @@
   vars:
     server_name: "{{ ansible_default_ipv4.address }}"
     document_root: /var/www
-    app_root: files/website
+    app_root: files/venus
   tasks:
     - name: Update apt cache and install Nginx
       apt:
