@@ -4,11 +4,16 @@
   become: yes
 
   tasks:
-    - name: Ensure Nginx is installed
+    - name: Install Nginx
       apt:
         name: nginx
         state: present
-      notify: restart nginx
+      # notify: restart nginx
+    - name: Start Nginx
+      service:
+        name: nginx
+        state: started
+
 
     - name: Copy Nginx default site configuration
       template:
