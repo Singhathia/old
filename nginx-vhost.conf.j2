@@ -2,8 +2,7 @@ server {
     listen 80;
     server_name {{ inventory_hostname }};
     
-    location / {
-        root /var/www/html;
-        index index.html;
-    }
+    root /var/www/html;
+    index index.html;
+
 }
