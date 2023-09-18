@@ -1,6 +1,6 @@
 server {
     listen 80;
-    server_name {{ inventory.ini }};
+    server_name {{ inventory_hostname }};
 
     root /var/www/html;
     index index.html;
