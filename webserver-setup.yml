@@ -18,7 +18,7 @@
 
     - name: Deploy Sample Website
       copy:
-        src: files/2089_meteor/index.html
+        src: files/2089_meteor
         dest: /var/www/html/
 
     # - name: Ensure SSL certificate directory exists
