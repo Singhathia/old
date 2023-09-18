@@ -1,0 +1,24 @@
+---
+- name: Configure Web Servers with SSL
+  hosts: web_servers
+  become: yes
+
+  tasks:
+    # ... Other tasks (HTTP configuration, website deployment)
+
+    - name: Ensure SSL certificate directory exists
+      file:
+        path: /etc/ssl/private
+        state: directory
+
+    - name: Copy SSL certificate (HTTPS)
+      copy:
+        src: /path/to/example.com.crt  # Replace with the actual path to your self-signed certificate
+        dest: /etc/ssl/private/example.com.crt
+      notify: restart nginx
+
+    - name: Copy SSL private key (HTTPS)
+      copy:
+        src: /path/to/example.com.key  # Replace with the actual path to your private key
+        dest: /etc/ssl/private/example.com.key
+      notify: restart nginx
