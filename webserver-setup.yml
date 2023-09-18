@@ -12,7 +12,7 @@
 
     - name: Copy Nginx default site configuration
       template:
-        src: nginx-vhost.conf.j2
+        src: nginx-vhost-ssl.conf.j2
         dest: /etc/nginx/sites-available/default
       notify: restart nginx
 
