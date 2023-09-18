@@ -8,11 +8,11 @@
       apt:
         name: nginx
         state: present
-      # notify: restart nginx
-    - name: Start Nginx
-      service:
-        name: nginx
-        state: started
+      notify: restart nginx
+    # - name: Start Nginx
+    #   service:
+    #     name: nginx
+    #     state: started
 
 
     - name: Copy Nginx default site configuration
@@ -48,3 +48,9 @@
         src: nginx-vhost-ssl.conf.j2
         dest: /etc/nginx/sites-available/default-ssl
       notify: restart nginx
+
+  handlers:
+  - name: restart nginx
+    service:
+      name: nginx
+      state: restarted
