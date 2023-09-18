@@ -1,5 +1,5 @@
 ---
-- name: Configure Web Servers with SSL
+- name: Configure Web Servers
   hosts: web_servers
   become: yes
 
@@ -20,29 +20,6 @@
       copy:
         src: files/2089_meteor/index.html
         dest: /var/www/html/
-
-    # - name: Ensure SSL certificate directory exists
-    #   file:
-    #     path: /etc/ssl/private
-    #     state: directory
-
-    # - name: Copy SSL certificate (HTTPS)
-    #   copy:
-    #     src: ssl/ansible-demo.crt  # Replace with the actual path to your self-signed certificate
-    #     dest: /etc/ssl/private/ansible-demo.crt
-    #   notify: restart nginx
-
-    # - name: Copy SSL private key (HTTPS)
-    #   copy:
-    #     src: ssl/ansible-demo.key  # Replace with the actual path to your private key
-    #     dest: /etc/ssl/private/ansible-demo.key
-    #   notify: restart nginx
-
-    # - name: Configure Nginx Virtual Host for SSL (HTTPS)
-    #   template:
-    #     src: nginx-vhost-ssl.conf.j2
-    #     dest: /etc/nginx/sites-available/default-ssl
-    #   notify: restart nginx
 
   handlers:
   - name: restart nginx
